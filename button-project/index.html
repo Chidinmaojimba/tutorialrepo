@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buts">
+        <button id="first">first</button>
+        <button id="second">second</button>
+        <button id="third">third</button>
+        <button id="forth">forth</button>
+    </div>
+    <div id="text">
+    </div>
+</body>
+<script>
+    function RenderElement(selector) {
+        const bttn = document.querySelector(selector);
+        const text_element = document.querySelector("#text");
+
+        bttn.addEventListener('click', () =>{
+            let inner_text = bttn.innerText;
+            // let tag_text = "<h1>" + inner_text + "</h1>";
+            let tag_text = `<h1>${inner_text}</h1>`
+            text_element.innerHTML += tag_text;
+        })
+    }
+    RenderElement("#first")
+    RenderElement("#second")
+    RenderElement("#third")
+    RenderElement("#forth")
+    // const first_bttn = document.querySelector("#first");
+    // const text_element = document.querySelector("#text");
+
+    // first_bttn.addEventListener('click', () =>{
+    //     let first = first_bttn.innerText;
+    //     let tag_text = "<h1>" + first + "</h1>";
+    //     text_element.innerHTML += tag_text;
+    // })
+
+    // const second_bttn = document.querySelector("#second");
+    // second_bttn.addEventListener('click', () =>{
+    //     let second = second_bttn.innerText;
+    //     let tag_text = "<h1>" + second + "</h1>";
+    //     text_element.innerHTML += tag_text;
+    // })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            gap: 2rem;
+        }
+        body div div {
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="first">first</button>
+        <div id="first-item" class="item">
+        </div>
+    </div> 
+    <div>
+        <button id="second">second</button>
+        <div id="second-item" class="item">
+        </div>
+    </div>
+    <div>
+        <button id="third">third</button>
+        <div id="third-item" class="item">
+        </div>
+    </div>
+    <div>
+        <button id="forth">forth</button>
+        <div id="forth-item" class="item">
+        </div>
+    </div>
+
+    <div>
+        <button id="reset">Reset</button>
+    </div>
+
+</body>
+<script>
+    function myButton(bttn_id, item_id) {
+        const bttn = document.querySelector(bttn_id);
+        const item = document.querySelector(item_id);
+        bttn.addEventListener('click', () => {
+            let text = `${bttn.innerText} button`;
+            item.innerHTML += `<p>${text}</p>`;
+        })
+    }
+
+    myButton("#first", "#first-item")
+    myButton("#second", "#second-item")
+    myButton("#third", "#third-item")
+    myButton("#forth", "#forth-item")
+
+    const reset_bttn = document.getElementById("reset");
+    const items = document.querySelectorAll(".item");
+    reset_bttn.addEventListener('click', () => {
+        for (const item of items) {
+            item.innerHTML = "";
+        }
+    })
+</script>
+</html>
