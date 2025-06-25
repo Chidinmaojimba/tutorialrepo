@@ -25,28 +25,30 @@
         </div>
         <div>
             <label for="phone-no">Phone Number</label>
-            <input id="phone-no" name="phone-no" type="tel" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}-[0-9]{3}" placeholder="234-436-5453-234" />
+            <input id="phone-no" name="phone-no" type="tel" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}-[0-9]{3}" required placeholder="234-436-5453-234" />
         </div>
         <input type="submit"/>
     </form>
 </body>
 <script>
     const form = document.querySelector("form");
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const first_name = document.getElementById("first-name");
-        const last_name = document.getElementById("last-name");
-        const age = document.getElementById("age");
-        const email = document.getElementById("email")
-        const phone_number = document.getElementById("phone-no");
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const first_name = document.querySelector("#first-name").value;
+        const last_name = document.querySelector("#last-name").value;
+        const age = document.querySelector("#age").value;
+        const email = document.querySelector("#email").value;
+        const phone_no = document.querySelector("#phone-no").value;
         const data = {
-            first_name: first_name.value,
-            last_name: last_name.value,
-            email: email.value,
-            age: age.value,
-            phone_number: phone_number.value
+            "first_name": first_name,
+            "last_name": last_name,
+            "age": age,
+            "email": email,
+            "phone_number": phone_no
         }
+
         console.log(data);
+        
     })
 </script>
 </html>
