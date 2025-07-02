@@ -1,4 +1,4 @@
-const employee = [{
+const person = [{
             name: "chidinma",
             age: 10,
             gender: "female",
@@ -7,25 +7,6 @@ const employee = [{
             year: "2024",
             salary: "20000"
 },
-{
-            name: "David",
-            age: 20,
-            gender: "male",
-            level: "100",
-            seniority: "senior",
-            year: "2022",
-            salary: "40000"   
-}
-
-{
-            name: "kossy",
-            age: 50,
-            gender: "male",
-            level: "400",
-            seniority: "senior",
-            year: "2025",
-            salary: "10000"   
-}
 {
     
             name: "Maxwell",
@@ -39,10 +20,10 @@ const employee = [{
 
 ]
 
-for (value in employee) {
- // console.log(value, person[value]);
+const employee = {...person, name: "Deborah", age: 50,  seniority: "Junior", gender: "Male"}
 
-console.log(employee)}
+
+console.log(employee);
 
 
 
