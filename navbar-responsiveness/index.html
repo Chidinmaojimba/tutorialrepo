@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 3.5rem;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .nav-items {
+            display: inline-flex;
+            gap: 10px;
+        }
+
+        .desktop-view {
+            display: flex;
+            background: yellow
+        }
+
+        .mobile-view {
+            display: none;
+        }
+
+        @media  screen and (max-width: 368px) {
+            .container {
+                background: red;
+            }
+            
+            .desktop-view {
+                display: none;
+            }
+
+            .mobile-view {
+                display: flex;
+                background: green;
+            }
+
+            .mobile-nav-menu {
+                width: 35px;
+                height: 30px;
+                background: inherit;
+            }
+
+            .mobile-nav-menu button {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                display: flex;
+                background: inherit;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .mobile-nav-menu button:hover {
+                background: red;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button .menu-icon {
+                position: relative;
+                width: 30px;
+                height: 4px;
+                border-radius: 10px;
+                background: black;
+            }
+
+            button .menu-icon::before {
+                top: -10px;
+            }
+
+            button .menu-icon::after {
+                top: 10px;
+            }
+            
+            button .menu-icon::before,
+            button .menu-icon::after {
+                content: '';
+                width: 30px;
+                height: 4px;
+                left: 0;
+                border-radius: 10px;
+                position: absolute;
+                background: black;
+            }
+
+            .mobile-nav-menu {
+                position: relative;
+            }
+
+            .mobile-nav-menu .nav-items {
+                display:none;
+                position: absolute;
+                top: 45px;
+                right: 5px;
+                flex-direction: column;
+                background: white;
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="desktop-view">
+            <div>
+                <span>DAVE-Desktop</span>
+            </div>
+            <div class="nav-items">
+                <span>home</span>
+                <span>collection</span>
+                <span>about</span>
+                <span>contact</span>
+            </div>
+        </nav>
+
+        <nav class="mobile-view">
+            <div>
+                <span>DAVE-Mobile</span>
+            </div>
+
+            <div class="mobile-nav-menu">
+                <button class="menu-bttn">
+                    <div class="menu-icon"></div>
+                </button>
+                <div class="nav-items" id="mobile-nav-items">
+                    <span>home</span>
+                    <span>collection</span>
+                    <span>about</span>
+                    <span>contact</span>
+                </div> 
+            </div>
+            
+        </nav>
+    </div>
+</body>
+    <script>
+        const menu_bttn = document.querySelector(".menu-bttn");
+        const mobile_nav_items = document.querySelector("#mobile-nav-items");
+    
+        function menu_item_visibility() {
+            // getComputedStyle(mobile_nav_items).display === 'none' ?
+            // mobile_nav_items.style.display = 'flex' :
+            // mobile_nav_items.style.display = 'none';
+            if (getComputedStyle(mobile_nav_items).display === 'none') {
+                mobile_nav_items.style.display = 'flex';
+            } else {
+                mobile_nav_items.style.display = 'none'
+            }
+        }
+        menu_bttn.addEventListener('click', menu_item_visibility);
+    </script>
+</html>
